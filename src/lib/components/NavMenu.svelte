@@ -114,10 +114,9 @@
 	<a
 	class='customHover'
 		href={`${base}/`}
-	
 	>
 	<img
-			class="w-8 h-8"
+			class="w-8 h-8 blueImg"
 			alt="redirect to page in new tab icon"
 			src="{PUBLIC_ORIGIN || $page.url.origin}{base}/{PUBLIC_APP_ASSETS}/newChat.png"
 			title="link to open new page"
@@ -151,7 +150,7 @@ style = "background-color: #141c2a !important;"
 <div class="flex flex-col gap-4 w-full items-center px-6">
 
 <div
-	class="border border-tertiary  active:scale-95 transition-all duration-100  rounded-xl text-center bg-newPrimary flex items-center justify-center group h-[62px]   w-[96%] font-semibold">
+	class="border customHover border-tertiary  active:scale-95 transition-all duration-100  rounded-xl text-center bg-newPrimary flex items-center justify-center group h-[62px]   w-[96%] font-semibold">
 	<a href="https://github.com/mithril-security/blind_llama_client/blob/main/docs/docs/whitepaper/blind_llama_whitepaper.pdf" target="_blank" rel="noopener noreferrer" 
 	class="bg-newPrimary py-2 text-center  block text-tertiary rounded-xl w-[99%]">
 	<div class="flex items-center w-full justify-center gap-1 text-lg"><img
@@ -164,14 +163,14 @@ style = "background-color: #141c2a !important;"
 	</a>
 </div>
 <div
-	class="hover:border hover:border-customGray active:scale-95   transition-all duration-100  rounded-xl text-center bg-newPrimary flex items-center justify-center group h-[62px]    text-customBlack w-[96%] font-semibold">
+	class=" customHover  active:scale-95   transition-all duration-100  rounded-xl text-center bg-newPrimary flex items-center justify-center group h-[62px]    text-customBlack w-[96%] font-semibold">
 	<a href="https://blindllama.mithrilsecurity.io/en/latest/docs/getting-started/how-we-achieve-zero-trust/" target="_blank" rel="noopener noreferrer" 
 	class="bg-newPrimary  block py-2 text-center text-customBlack  rounded-xl w-[99%] text-lg">
 	How BlindChat works
 	</a>
 </div>
 <div
-	class="hover:border mb-4 hover:border-customGray   active:scale-95  transition-all duration-100  rounded-xl text-center bg-newPrimary flex items-center justify-center group h-[62px]    text-customBlack w-[96%] font-semibold">
+	class=" customHover mb-4   active:scale-95  transition-all duration-100  rounded-xl text-center bg-newPrimary flex items-center justify-center group h-[62px]    text-customBlack w-[96%] font-semibold">
 	<a href="https://1qdag6eehid.typeform.com/to/EFrGfL1u" target="_blank" rel="noopener noreferrer" 
 	class="bg-newPrimary  block py-2 text-center text-customBlack  rounded-xl w-[99%] text-lg">
 		Give Feedback

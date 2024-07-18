@@ -15,7 +15,7 @@
 
 	import OpenWebSearchResults from "../OpenWebSearchResults.svelte";
 	import { PUBLIC_APP_ASSETS, PUBLIC_ORIGIN } from "$env/static/public";
-	import { scale } from "svelte/transition";
+	import { fade, scale } from "svelte/transition";
 
 	function sanitizeMd(md: string) {
 		let ret = md
@@ -188,7 +188,7 @@
 					on:keypress
 					on:click={() => copyMessage(message.id)}
 					src="{PUBLIC_ORIGIN || $page.url.origin}{base}/{PUBLIC_APP_ASSETS}/copy.png"
-					class="customHover absolute bottom-0 right-[-22px] h-[22px] w-[22px] cursor-pointer p-0"
+					class="group-hover:visible invisible blueImg customHover absolute bottom-0 right-[-22px] h-[22px] w-[22px] cursor-pointer p-0"
 				/>
 			{/if}
 		</div>
@@ -208,7 +208,7 @@
 				title="Copy message"
 				alt="copy message"
 				src="{PUBLIC_ORIGIN || $page.url.origin}{base}/{PUBLIC_APP_ASSETS}/copy.png"
-				class="customHover absolute bottom-0 left-[-22px] h-[22px] w-[22px] cursor-pointer p-0"
+				class="group-hover:visible invisible customHover blueImg absolute bottom-0 left-[-22px] h-[22px] w-[22px] cursor-pointer p-0"
 			/>
 		</div>
 		{#if !loading}
@@ -225,3 +225,5 @@
 		Text copied
 	</div>
 {/if}
+
+

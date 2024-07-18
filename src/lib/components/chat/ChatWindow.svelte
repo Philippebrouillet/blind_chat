@@ -87,14 +87,14 @@
 	};
 </script>
 
-<div class="relative min-h-0 spacin min-w-0  tracking-[0.74px] bg-chat">
+<div class="spacin relative min-h-0 min-w-0 bg-chat tracking-[0.74px]">
 	{#if isPrivacyBannerOpen}
 		<script type="text/javascript">
 			const privacy = document.getElementById("PrivacyBanner");
 			if (privacy) privacy.style.display = "block";
 		</script>
 		<div class="bg-chat" id="privacy-banner">
-			<div class="flex justify-between border-b border-customGray px-4">
+			<div class="border-customGray flex justify-between border-b px-4">
 				<div class="flex-1 items-center justify-center text-center">
 					<div
 						class="text-black/white flex items-center justify-center gap-4 px-4 py-3 text-xs lg:text-base"
@@ -102,7 +102,7 @@
 						<img
 							alt="Ai confidential mode logo"
 							src="{PUBLIC_ORIGIN || $page.url.origin}{base}/{PUBLIC_APP_ASSETS}/padlock.png"
-							class="h-[20px] w-[20px] lg:h-[22px] lg:w-[22px] "
+							class="h-[20px] w-[20px] lg:h-[22px] lg:w-[22px]"
 						/>
 
 						<p>
@@ -119,7 +119,7 @@
 				</div>
 				<button
 					type="button"
-					class="pt-4 mr-1"
+					class="mr-1 pt-4"
 					style="align-self: flex-start;"
 					on:click={closePrivacyBanner}
 				>
@@ -153,12 +153,6 @@
 			{#if settings?.searchEnabled}
 				<WebSearchToggle />
 			{/if}
-			{#if loading}
-				<StopGeneratingBtn
-					classNames={settings?.searchEnabled ? "md:-translate-x-1/2 md:mx-auto" : "mx-auto"}
-					on:click={() => dispatch("stop")}
-				/>
-			{/if}
 		</div>
 		<form
 			on:submit|preventDefault={handleSubmit}
@@ -178,21 +172,25 @@
 				/>
 
 				{#if loading}
-					<button
-						class="btn mx-1 my-1 inline-block h-[2.4rem] self-end rounded-lg bg-transparent p-1 px-[0.7rem] text-gray-400 enabled:hover:text-gray-700 disabled:opacity-60 enabled:dark:hover:text-gray-100 dark:disabled:opacity-40 md:hidden"
-						on:click={() => dispatch("stop")}
-					>
-						<CarbonStopFilledAlt />
-					</button>
+					
+
+			
 					<div
 						class="mx-1 my-1 hidden h-[2.4rem] items-center p-1 px-[0.7rem] text-gray-400 enabled:hover:text-gray-700 disabled:opacity-60 enabled:dark:hover:text-gray-100 dark:disabled:opacity-40 md:flex"
 					>
-						<EosIconsLoading />
+						<img
+							on:keypress={() => dispatch("stop")}
+							alt="stop generating img"
+							src="{PUBLIC_ORIGIN || $page.url.origin}{base}/{PUBLIC_APP_ASSETS}/stopInput.png"
+							class="h-[24px] w-[24px] hover:cursor-pointer customHover "
+							on:click={() => dispatch("stop")}
+						/>
 					</div>
+			
 				{:else}
 					<button
 						class="btn bg-red-20 mx-1 my-1 h-[2.4rem] self-end rounded-lg p-1 px-[0.7rem] enabled:hover:text-gray-700 disabled:opacity-60 enabled:dark:hover:text-gray-100 dark:disabled:opacity-40 {message
-							? 'customHover'
+							? 'customHover blueImg'
 							: ''} "
 						disabled={!message || isReadOnly}
 						type="submit"
@@ -200,7 +198,7 @@
 						<img
 							alt="send button img"
 							src="{PUBLIC_ORIGIN || $page.url.origin}{base}/{PUBLIC_APP_ASSETS}/send.png"
-							class="h-[30px] w-[30px]"
+							class="h-[30px] w-[30px] "
 						/>
 					</button>
 				{/if}
@@ -244,7 +242,7 @@
 		use:clickOutside={toggleHelpMenu}
 		in:scale
 		id="helpMenu"
-		class="bottom-[48px] right-[12px] flex items-center justify-center rounded-2xl border-t border-gray-200/50 bg-newPrimary p-2 shadow-xl {isHelpMenuOpen
+		class="bottom-[48px] right-[20px] flex items-center justify-center rounded-2xl border-t border-gray-200/50 bg-newPrimary p-2 shadow-xl {isHelpMenuOpen
 			? 'open'
 			: ''}"
 		style="position: absolute;"
@@ -303,5 +301,5 @@
 	on:keydown={handleKeyDown}
 	alt="send button img"
 	src="{PUBLIC_ORIGIN || $page.url.origin}{base}/{PUBLIC_APP_ASSETS}/interogationPoint.png"
-	class="customHover absolute bottom-3 right-4 h-[28px] w-[28px] cursor-pointer lg:h-[30px] lg:w-[30px]"
+	class="customHover absolute bottom-3 right-4 h-[28px] w-[28px] blueImg cursor-pointer lg:h-[30px] lg:w-[30px]"
 />

@@ -25,8 +25,10 @@
 		on:click={() => {
 			params_writable.set(conv.id);
 		}}
+		class:hover:bg-[#F1F1F1]={conv.id !==
+			$page.params.id}
 		href="{base}/conversation/{conv.id}"
-		class="group relative flex flex-none h-[68px]  items-center gap-1.5 rounded-xl  px-4 transition-all duration-100 hover:border-tertiary hover:bg-newPrimary hover:text-customBlack {conv.id ===
+		class="group relative flex flex-none h-[68px]  items-center gap-1.5 rounded-xl  px-4 transition-all duration-100 hover:border-tertiary  hover:text-customBlack {conv.id ===
 		$page.params.id
 			? 'bg-newPrimary text-customBlack'
 			: ' text-customGrey bg-secondary'}"
